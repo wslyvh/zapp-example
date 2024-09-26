@@ -26,12 +26,12 @@ export function ZupassConnector() {
 
     try {
       const pods = await zupass.pod.query({
-        entries: {
+        entries: { // Types?
           greeting: { type: "string" },
         },
-      });
+      } as any);
       console.log("pods", pods);
-    } catch (e) {
+    } catch (e: any) {
       console.error(e);
       setError(e.message);
     }
